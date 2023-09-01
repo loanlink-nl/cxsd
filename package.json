@@ -55,7 +55,7 @@
     "@types/node": "^18.16.19",
     "@types/node-expat": "^2.3.2",
     "@types/source-map-support": "^0.5.6",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@typescript-eslint/parser": "^6.3.0",
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.8.0",
