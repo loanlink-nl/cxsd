@@ -14,3 +14,5 @@ test/output/
 test/xmlns/
 
 datacatalogus.*
+
+.DS_Store
