@@ -6,12 +6,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Capital-Management-Group/cxsd"
+    "url": "git+https://github.com/loanlink-nl/cxsd"
   },
   "bugs": {
-    "url": "https://github.com/Capital-Management-Group/cxsd/issues"
+    "url": "https://github.com/loanlink-nl/cxsd/issues"
   },
-  "homepage": "https://github.com/Capital-Management-Group/cxsd#readme",
+  "homepage": "https://github.com/loanlink-nl/cxsd#readme",
   "main": "./dist/schema.js",
   "typings": "./dist/schema.d.ts",
   "engines": {
