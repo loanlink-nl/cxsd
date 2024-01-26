@@ -6,3 +6,6 @@ updates:
       interval: "daily"
     reviewers:
       - "markusgeert"
+    ignore:
+      - update-types: ["version-update:semver-patch"]
+        dependency-name: "*"
