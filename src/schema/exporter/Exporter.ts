@@ -57,7 +57,5 @@ export abstract class Exporter extends Transform<Exporter, boolean, State> {
 
   protected abstract getOutName(name: string): string;
 
-  protected state: State;
-
   protected opts: Record<string, any>;
 }
