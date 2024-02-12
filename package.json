@@ -15,7 +15,7 @@
   "main": "./dist/schema.js",
   "typings": "./dist/schema.d.ts",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "scripts": {
     "clean": "rimraf dist",
@@ -44,8 +44,8 @@
     "typescript"
   ],
   "dependencies": {
-    "@loanlink/cget": "loanlink-nl/cget#ee04a5205c9dcdd9d88408e142db9ea9445154d5",
-    "@loanlink/cxml": "loanlink-nl/cxml#d6f167539888cd4988ac1771e1f2fc50122c180a",
+    "@loanlink/cget": "loanlink-nl/cget#master",
+    "@loanlink/cxml": "loanlink-nl/cxml#master",
     "commander": "^11.1.0",
     "node-expat": "^2.4.0",
     "source-map-support": "^0.5.16"
