@@ -6,7 +6,7 @@ import {
   MemberFlag,
   MemberRef,
   MemberRefFlag,
-} from "@loanlink/cxml";
+} from "@loanlink-nl/cxml";
 
 import { Exporter } from "./Exporter";
 import { Namespace } from "../Namespace";
@@ -262,7 +262,7 @@ export class JS extends Exporter {
 
     return []
       .concat(
-        ['var cxml = require("@loanlink/cxml");'],
+        ['var cxml = require("@loanlink-nl/cxml");'],
         this.writeHeader(),
         [
           "",

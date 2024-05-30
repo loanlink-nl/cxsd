@@ -1,4 +1,4 @@
-import { Cache, FetchOptions } from "@loanlink/cget";
+import { Cache, FetchOptions } from "@loanlink-nl/cget";
 
 import { Context } from "./xsd/Context";
 import { Loader } from "./xsd/Loader";

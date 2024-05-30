@@ -1,7 +1,7 @@
 // This file is part of cxsd, copyright (c) 2015-2016 BusFaster Ltd.
 // Released under the MIT license, see LICENSE.
 
-import { FetchOptions, Cache, CacheResult } from "@loanlink/cget";
+import { FetchOptions, Cache, CacheResult } from "@loanlink-nl/cget";
 
 import { Context } from "./Context";
 import { Namespace } from "./Namespace";

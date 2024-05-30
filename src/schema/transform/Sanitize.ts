@@ -1,7 +1,7 @@
 // This file is part of cxsd, copyright (c) 2016 BusFaster Ltd.
 // Released under the MIT license, see LICENSE.
 
-import { MemberSpec as Member } from "@loanlink/cxml";
+import { MemberSpec as Member } from "@loanlink-nl/cxml";
 
 import { Type } from "../Type";
 import { Transform } from "./Transform";

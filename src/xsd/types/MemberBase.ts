@@ -1,7 +1,7 @@
 // This file is part of cxsd, copyright (c) 2015-2016 BusFaster Ltd.
 // Released under the MIT license, see LICENSE.
 
-import { MemberSpec } from "@loanlink/cxml";
+import { MemberSpec } from "@loanlink-nl/cxml";
 
 import { State } from "../State";
 import { QName } from "../QName";
