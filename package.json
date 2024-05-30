@@ -1,5 +1,5 @@
 {
-  "name": "@loanlink/cxsd",
+  "name": "@loanlink-nl/cxsd",
   "version": "1.0.0",
   "description": "Streaming XSD parser and XML parser generator with TypeScript output",
   "author": "Loanlink",
@@ -44,8 +44,8 @@
     "typescript"
   ],
   "dependencies": {
-    "@loanlink/cget": "loanlink-nl/cget#master",
-    "@loanlink/cxml": "loanlink-nl/cxml#master",
+    "@loanlink-nl/cget": "^1.0.1",
+    "@loanlink-nl/cxml": "^1.0.2",
     "commander": "^11.1.0",
     "node-expat": "^2.4.0",
     "source-map-support": "^0.5.16"
@@ -87,5 +87,8 @@
       "<rootDir>/(dist)/"
     ],
     "testRegex": "(/(src|test)/.*\\.test\\.(ts|js))$"
+  },
+  "publishConfig": {
+    "@loanlink-nl:registry": "https://npm.pkg.github.com/loanlink-nl"
   }
 }
