@@ -1,51 +1,51 @@
 {
-    "elements": [
+  "elements": [
+    {
+      "type": "element",
+      "name": "dir",
+      "attributes": {
+        "name": "123"
+      },
+      "elements": [
         {
-            "type": "element",
-            "name": "dir",
-            "attributes": {
-                "name": "123"
-            },
-            "elements": [
-                {
-                    "type": "element",
-                    "name": "owner",
-                    "elements": [
-                        {
-                            "type": "text",
-                            "text": "me"
-                        }
-                    ]
-                },
-                {
-                    "type": "element",
-                    "name": "file",
-                    "attributes": {
-                        "name": "test",
-                        "size": "123"
-                    },
-                    "elements": [
-                        {
-                            "type": "text",
-                            "text": "\n\t\tdata\n\t"
-                        }
-                    ]
-                },
-                {
-                    "type": "element",
-                    "name": "file",
-                    "attributes": {
-                        "name": "test",
-                        "size": "123"
-                    },
-                    "elements": [
-                        {
-                            "type": "text",
-                            "text": "\n  data\n  "
-                        }
-                    ]
-                }
-            ]
+          "type": "element",
+          "name": "owner",
+          "elements": [
+            {
+              "type": "text",
+              "text": "me"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "name": "file",
+          "attributes": {
+            "name": "test",
+            "size": "123"
+          },
+          "elements": [
+            {
+              "type": "text",
+              "text": "\n\t\tdata\n\t"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "name": "file",
+          "attributes": {
+            "name": "test",
+            "size": "123"
+          },
+          "elements": [
+            {
+              "type": "text",
+              "text": "\n  data\n  "
+            }
+          ]
         }
-    ]
+      ]
+    }
+  ]
 }

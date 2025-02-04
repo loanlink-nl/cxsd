@@ -17,14 +17,14 @@ export class ComplexType extends types.TypeBase {
     types.Sequence,
     types.Choice,
     types.AttributeGroup,
-    types.Group
+    types.Group,
   ];
 }
 
 export class ContentBase extends types.Base {
   static mayContain: () => types.BaseClass[] = () => [
     types.Extension,
-    types.Restriction
+    types.Restriction,
   ];
 
   resolve(state: State) {
