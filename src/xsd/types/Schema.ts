@@ -22,7 +22,7 @@ export class Schema extends types.Base {
     types.ComplexType,
     types.Group,
     types.Attribute,
-    types.Element
+    types.Element,
   ];
 
   init(state: State) {

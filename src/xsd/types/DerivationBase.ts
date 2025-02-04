@@ -16,12 +16,12 @@ export class DerivationBase extends types.Base {
     types.Sequence,
     types.Attribute,
     types.AttributeGroup,
-    types.AnyAttribute
+    types.AnyAttribute,
   ];
 
   resolve(state: State) {
     const base = new QName(this.base, state.source);
-    (state.parent.xsdElement as (ContentBase | types.SimpleType)).parent =
+    (state.parent.xsdElement as ContentBase | types.SimpleType).parent =
       (this.scope.lookup(base, "type") as types.TypeBase) || base;
 
     this.scope.addAllToParent("element");
