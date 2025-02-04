@@ -9,6 +9,9 @@ It retrieves the specified file(s) and generates a Typescript file containing th
 # Parsing from local filesystem
 cxsd path/to/file.xsd
 
+# Parsing from stdin
+cat path/to/file.xsd | cxsd
+
 # Parsing from url
 cxsd https://www.example.com/sample-xsd.xsd
 
@@ -27,8 +30,8 @@ cxsd --help
 
 # License
 
-[The MIT License](https://raw.githubusercontent.com/charto/cxsd/master/LICENSE)
+[The MIT License](https://raw.githubusercontent.com/loanlink-nl/cxsd/master/LICENSE)
 
-Copyright (c) 2023 CapitalManagementGroup
+Copyright (c) 2025 LoanLink
 
 based largely on work from BusFaster Ltd and WikiPathways
