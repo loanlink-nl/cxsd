@@ -27,7 +27,7 @@ export const cacheWriter = (cache: Cache, disableCache = false): Writer => ({
     // Always output forward slashes.
     // If path.sep is a backslash as on Windows, we need to escape it (as a double-backslash) for it to be a valid Regex.
     // We are using a Regex because the alternative string.replace(string, string) overload only replaces the first occurance.
-    const separatorRegex = new RegExp(path.sep.replace("\\", "\\\\"), "g");
+    const separatorRegex = new RegExp(path.sep.replace(/\\/g, "\\\\"), "g");
 
     const address = new Address(namespace.name);
     const cacheDir = path.dirname(cache.getCachePathSync(address));
