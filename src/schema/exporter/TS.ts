@@ -5,7 +5,6 @@ import { MemberRef } from "@loanlink-nl/cxml";
 
 import { Exporter } from "./Exporter";
 import { Type } from "../Type";
-import { toLowerCamelCase } from "../transform/Transform";
 
 const singleIndent = "  ";
 
@@ -136,7 +135,7 @@ export class TS extends Exporter {
       output.push("\n");
     }
 
-    let name = toLowerCamelCase(member.name);
+    let name = member.name;
 
     // Convert name to a name compatible with JAXB output (from Jsonix)
     if (member.name !== ref.safeName) name = `"${name}"`;

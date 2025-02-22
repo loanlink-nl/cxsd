@@ -6,4 +6,3 @@ export { Namespace } from "./schema/Namespace";
 export { Type } from "./schema/Type";
 export { JS } from "./schema/exporter/JS";
 export { TS } from "./schema/exporter/TS";
-export { toLowerCamelCase } from "./schema/transform/Transform";

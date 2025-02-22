@@ -1,6 +1,6 @@
 {
   "name": "@loanlink-nl/cxsd",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Streaming XSD parser and XML parser generator with TypeScript output",
   "author": "LoanLink",
   "license": "MIT",
