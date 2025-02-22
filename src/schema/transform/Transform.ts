@@ -51,7 +51,7 @@ export abstract class Transform<
 
     const output = await Promise.resolve(this.prepare());
     const outputList = await Promise.all(
-      namespace.getUsedImportList().map((namespace_1: Namespace) => {
+      namespace.getUsedImportList().map(async (namespace_1: Namespace) => {
         if (!visitedNamespaceTbl[namespace_1.id]) {
           if (namespace_1.doc) {
             const transform = new this.construct(namespace_1.doc);
@@ -60,7 +60,7 @@ export abstract class Transform<
           }
         }
 
-        return [];
+        return [] as Output[];
       }),
     );
     return Array.prototype.concat.apply([output], outputList);
