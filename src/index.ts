@@ -8,6 +8,7 @@ import { Sanitize } from "./schema/transform/Sanitize";
 import * as schema from "./schema";
 import { cacheWriter } from "./schema/exporter/CacheWriter";
 import { inMemoryWriter } from "./schema/exporter/InMemoryWriter";
+import { Writer } from "./schema/exporter/Exporter";
 
 export async function handleConvert(
   urlRemote: string,
@@ -31,15 +32,19 @@ export async function handleConvert(
   const defaultOut = "xmlns";
   const outTs = opts["outTs"] ?? opts["out"] ?? defaultOut;
 
-  const files: Record<string, string> = {};
+  let files: Record<string, string> | null = null;
 
-  const tsWriter = useCache
-    ? cacheWriter(
-        new Cache(outTs, {
-          indexName: "_index.d.ts",
-        }),
-      )
-    : inMemoryWriter(files);
+  let tsWriter: Writer;
+  if (useCache) {
+    tsWriter = cacheWriter(
+      new Cache(outTs, {
+        indexName: "_index.d.ts",
+      }),
+    );
+  } else {
+    files = {};
+    tsWriter = inMemoryWriter(files);
+  }
 
   const schemaContext = new schema.Context();
   const xsdContext = new Context(schemaContext);
@@ -63,9 +68,12 @@ export async function handleConvert(
     await sanitize.exec();
     sanitize.finish();
     addImports.finish(importsAdded);
+
     await new schema.TS(spec, tsWriter, {
       document: opts?.["document"] ?? "document",
     }).exec();
+
+    return files;
   } catch (err) {
     console.error(err);
     console.log("Stack:");

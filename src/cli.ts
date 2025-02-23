@@ -3,9 +3,12 @@
 
 import { Command } from "commander";
 import * as fs from "node:fs/promises";
+import * as os from "node:os";
+import * as path from "node:path";
 
 import { handleConvert } from "./index";
 import { version } from "../package.json";
+import { randomUUID } from "node:crypto";
 
 export function makeProgram() {
   const program = new Command();
@@ -27,9 +30,12 @@ export function makeProgram() {
       "Connect to <port> when using --force-host",
     )
     .option("-c, --cache", "When present, cache downloaded XSD files")
-    .option("-o, --out <path>", "Output definitions and modules under <path>")
     .option(
-      "-t, --out-ts <path>",
+      "-o, --out <directory>",
+      "Output definitions and modules under <path>",
+    )
+    .option(
+      "-t, --out-ts <directory>",
       "Output TypeScript definitions under <path>. Overrides --out",
     )
     .option(
@@ -48,28 +54,53 @@ export function makeProgram() {
 
   // The action callback reads from a file if given (and not "-"), otherwise from stdin.
   program.action(async (input: string | undefined, options: any) => {
-    let data: string;
+    let url: string;
     if (input && input !== "-") {
-      // Read input from the file
-      try {
-        data = await fs.readFile(input, "utf8");
-      } catch (err) {
-        console.error(`Error reading file ${input}:`, err);
-        process.exit(1);
-      }
+      url = input;
     } else {
       // Read input from stdin
-      data = await new Promise<string>((resolve, reject) => {
+      const data = await new Promise<string>((resolve, reject) => {
         let result = "";
         process.stdin.setEncoding("utf8");
         process.stdin.on("data", (chunk) => (result += chunk));
         process.stdin.on("end", () => resolve(result));
         process.stdin.on("error", reject);
       });
+
+      // Write data to temp file
+      const tmpDir = os.tmpdir();
+      const filename = randomUUID();
+      const tmpFileName = path.join(tmpDir, filename);
+
+      await fs.writeFile(tmpFileName, data, "utf8");
+
+      url = tmpFileName;
     }
 
     // Pass the input data (and options) to the conversion handler.
-    await handleConvert(data, options);
+    const files = await handleConvert(url, options);
+    if (!files) {
+      return;
+    }
+
+    const fileEntries = Object.entries(files);
+
+    if (options.out) {
+      await fs.mkdir(options.out, { recursive: true });
+
+      for (const [filename, content] of fileEntries) {
+        const outPath = path.resolve(options.out, filename);
+
+        await fs.writeFile(outPath, content, "utf8");
+      }
+    } else if (fileEntries.length <= 1) {
+      process.stdout.write(fileEntries[0][1]);
+    } else {
+      throw Error(
+        "Multiple files generated. Use --out to specify output directory.",
+      );
+    }
   });
+
   return program;
 }
