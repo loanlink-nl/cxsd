@@ -71,6 +71,7 @@ export async function handleConvert(
 
     await new schema.TS(spec, tsWriter, {
       document: opts?.["document"] ?? "document",
+      safeNameOverrides: opts.override,
     }).exec();
 
     return files;

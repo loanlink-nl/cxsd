@@ -10,6 +10,15 @@ import { handleConvert } from "./index";
 import { version } from "../package.json";
 import { randomUUID } from "node:crypto";
 
+function parseKeyValue(input: string, previous: Record<string, string> = {}) {
+  // Split by colon
+  const [key, value] = input.split(":");
+  // Store on the object
+  previous[key] = value;
+  // Return the accumulated object
+  return previous;
+}
+
 export function makeProgram() {
   const program = new Command();
 
@@ -50,6 +59,12 @@ export function makeProgram() {
       "-d, --document <name>",
       "Use the document <namespace> as the document name",
       "document",
+    )
+    .option(
+      "--override <key:value>",
+      "Add a key-value type override",
+      parseKeyValue,
+      {},
     );
 
   // The action callback reads from a file if given (and not "-"), otherwise from stdin.

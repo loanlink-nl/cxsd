@@ -96,6 +96,8 @@ export class TS extends Exporter {
 
   // writeTypeList(ref: MemberRef) {
   writeTypeList(ref: any) {
+    this.opts.safeNameOverrides = this.opts.safeNameOverrides || {};
+
     let typeList = ref.member.typeSpecList;
 
     if (ref.max > 1 && ref.member.proxySpec) typeList = [ref.member.proxySpec];
@@ -105,8 +107,14 @@ export class TS extends Exporter {
         type.isPlainPrimitive &&
         (!type.literalList || !type.literalList.length)
       ) {
+        if (this.opts.safeNameOverrides[type.safeName]) {
+          return this.opts.safeNameOverrides[type.safeName];
+        }
+
         return type.primitiveType.name;
-      } else return this.writeTypeRef(type, "");
+      } else {
+        return this.writeTypeRef(type, "");
+      }
     });
 
     if (outTypeList.length == 0) return null;
@@ -164,7 +172,9 @@ export class TS extends Exporter {
         if (literalList.length > 1) {
           output.push("(" + literalList.join(" | ") + ")");
         } else output.push(literalList[0]);
-      } else output.push(type.primitiveType.name);
+      } else {
+        output.push(type.primitiveType.name);
+      }
     } else if (type.isList) {
       output.push(this.writeTypeList(type.childList[0]));
     } else {

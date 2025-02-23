@@ -14,10 +14,7 @@ export interface BaseClass {
 
   rule: Rule;
 
-  // TODO I made the name property optional, because if I don't, I get the following error:
-  // src/xsd/Exporter.ts|152 col 40 error| Argument of type 'typeof Primitive' is not assignable to parameter of type 'BaseClass'. Property 'name' is missing in type 'typeof Primitive'.
-  // But should it be optional?
-  name?: string;
+  name: string;
 }
 
 /** Common handler base class for all schema tags. */
@@ -80,9 +77,5 @@ export class Base {
   bytePos: number;
   name: string;
 
-  // TODO why was this defined here?
-  // TS doesn't like it, so I'm commenting it out.
-  // Can we delete it?
-  //static name: string;
   static rule: Rule;
 }
