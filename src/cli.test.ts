@@ -132,7 +132,7 @@ describe("CLI input handling", () => {
     spy.mockRestore();
 
     const captured = output.join("");
-    expect(captured).toContain("export interface RootType");
+    expect(captured).toContain("export interface document");
 
     // Cleanup the temporary file.
     fs.unlinkSync(tmpFileName);
