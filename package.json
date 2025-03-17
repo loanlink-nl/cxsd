@@ -60,7 +60,7 @@
   "devDependencies": {
     "@eslint/compat": "^1.2.6",
     "@eslint/eslintrc": "^3.2.0",
-    "@eslint/js": "^9.21.0",
+    "@eslint/js": "^9.22.0",
     "@types/jest": "^29.5.11",
     "@types/node": "^20.17.19",
     "@types/node-expat": "^2.3.5",
