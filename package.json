@@ -98,8 +98,5 @@
       "<rootDir>/(dist)/"
     ],
     "testRegex": "(/(src|test)/.*\\.test\\.(ts|js))$"
-  },
-  "publishConfig": {
-    "@loanlink-nl:registry": "https://npm.pkg.github.com/loanlink-nl"
   }
 }
