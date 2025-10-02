@@ -2,7 +2,7 @@
 // Released under the MIT license, see LICENSE.
 
 import { MemberRef } from "@loanlink-nl/cxml";
-
+import path from "path";
 import { Exporter } from "./Exporter";
 import { Type } from "../Type";
 
@@ -410,7 +410,7 @@ export class TS extends Exporter {
   }
 
   getOutName(name: string) {
-    return name + ".ts";
+    return path.basename(name) + ".ts";
   }
 
   construct = TS;
