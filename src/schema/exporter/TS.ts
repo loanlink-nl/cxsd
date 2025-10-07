@@ -2,7 +2,7 @@
 // Released under the MIT license, see LICENSE.
 
 import { MemberRef } from "@loanlink-nl/cxml";
-import path from "path";
+import * as path from "node:path";
 import { Exporter } from "./Exporter";
 import { Type } from "../Type";
 
