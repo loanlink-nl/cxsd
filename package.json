@@ -60,7 +60,7 @@
     "@eslint/compat": "1.2.6",
     "@eslint/eslintrc": "3.3.0",
     "@eslint/js": "9.23.0",
-    "@types/jest": "29.5.12",
+    "@types/jest": "29.5.14",
     "@types/node": "^22.13.13",
     "@types/node-expat": "^2.3.5",
     "@types/source-map-support": "^0.5.10",
@@ -76,7 +76,7 @@
     "npm-run-all2": "^7.0.2",
     "prettier": "3.5.3",
     "rimraf": "^6.0.0",
-    "ts-jest": "29.2.0",
+    "ts-jest": "29.4.5",
     "typescript": "^5.7.3"
   },
   "jest": {
