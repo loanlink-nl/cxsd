@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/loanlink-nl/cxsd"
+    "url": "git+https://github.com/loanlink-nl/cxsd.git"
   },
   "bugs": {
     "url": "https://github.com/loanlink-nl/cxsd/issues"
@@ -31,7 +31,6 @@
     "check": "npm run lint:check && npm run format:check",
     "prepare": "npm run build",
     "prepublishOnly": "npm run test",
-    "postpublish": "TAG=\"v$(jq -r .version package.json)\" && git commit -am \"Bumped to version $TAG\" && git tag -a $TAG -m \"Published version $TAG\" && git push origin $TAG",
     "pretest": "npm run build",
     "test": "jest"
   },
