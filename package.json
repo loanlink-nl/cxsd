@@ -52,7 +52,7 @@
   "dependencies": {
     "@loanlink-nl/cget": "^1.0.1",
     "@loanlink-nl/cxml": "^1.0.2",
-    "commander": "^13.1.0",
+    "commander": "^14.0.0",
     "node-expat": "^2.4.1",
     "source-map-support": "^0.5.21"
   },
